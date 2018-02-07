@@ -1,0 +1,21 @@
+/* static/style.css */
+
+h1 {  
+    color: black;
+    font-variant-caps: all-small-caps;
+    font-size: 46px;
+}
+
+h3 {  
+  color: black;
+  font-size: 36px;
+}
+
+li {  
+  color: red;
+  font-size: 20px;
+}
+
+body {  
+    background: white;
+}
