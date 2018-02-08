@@ -16,7 +16,7 @@ class Counter:
         self.lock.acquire()
         try:
             logging.debug('Acquired lock')
-            self.value = self.value + 1
+            self.value = self.value + 7
         finally:
             self.lock.release()
 

@@ -1,14 +1,28 @@
 // scripts.js
 
-// a couple of different backgrounds to style the shop
-var background1 = 'black';  
-var background2 = 'firebrick';
+var counter = 'Unknown';
 
-// this lets us toggle the background state
-var color = true;
+var xhr = new XMLHttpRequest();
 
-// every 1 second, switch the background color, alternating between the two styles
+xhr.onload = function (e) {
+  if (xhr.readyState === 4) {
+    if (xhr.status === 200) {
+      counter = xhr.responseText;
+    } else {
+      console.error(xhr.statusText);
+      counter = 'Unknown'
+    }
+  }
+};
+
+xhr.onerror = function (e) {
+  console.error(xhr.statusText);
+};
+
 setInterval(function () {  
-  document.body.style.backgroundColor = (color ? background1 : background2)
-  color = !color;
-}, 10000);
+
+  xhr.open("GET", "http://127.0.0.1:5000/testendpoint", true);
+  xhr.send(null);
+  document.getElementById('demo').innerHTML = counter
+
+}, 2000);
